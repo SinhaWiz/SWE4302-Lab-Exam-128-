@@ -1,0 +1,69 @@
+1. Large Class (inventorySystem.java), Lines 1-190
+   - The inventorySystem class has too many responsibilities (product management, order processing, reporting)
+   - Violates Single Responsibility Principle
+   - Should be split into separate classes like ProductManager, OrderProcessor, and ReportGenerator
+
+2. Data Class (Warehouse.java), Lines 1-13
+   - Class only contains data fields with no behavior
+   - All fields are public, violating encapsulation
+   - Should include methods to manipulate and validate data
+
+3. Global State (globalInventoryData.java), Lines 4-14
+   - Using static fields to store global state
+   - Makes the system hard to test and maintain
+   - Creates tight coupling between classes
+   - Should use dependency injection instead
+
+Lines 8-17 and Lines 20-32 Public Fields (inventorySystem.java)
+   - Product and Order classes expose all their fields as public
+   - Violates encapsulation
+   - Should use private fields with getters/setters
+
+ Lines 39-67Long Method (inventorySystem.java)
+   - addProduct method has too many nested if statements
+   - Complex validation logic
+   - Should be refactored into smaller, more focused methods
+
+ Lines 82-103 Switch Statement Smell (inventorySystem.java),
+   - calculateFinalPrice method uses switch statement for discount types
+   - Violates Open/Closed Principle
+   - Should use polymorphism with different discount strategy classes
+
+7. Primitive Obsession (inventorySystem.java), Lines 20-32
+   - Using primitive types for order status and dates (String)
+   - Should use enums for status and proper Date/DateTime objects
+
+8. Feature Envy (inventorySystem.java), Lines 106-114
+   - calculateTotalInventoryValue method seems more interested in Product class data
+   - Should possibly be moved to Product class
+
+9. Magic Numbers (inventorySystem.java), Lines 89-93
+   - Hard-coded values (0.85, 0.95, 0.8) for discount calculations
+   - Should be constants or configuration values
+
+10. Poor Exception Handling (inventorySystem.java), Lines 65-67
+    - Catches general Exception and only prints stack trace
+    - No proper error handling or recovery strategy
+    - Should use specific exceptions and proper error handling
+
+11. Inconsistent Method Naming (inventorySystem.java), Lines 162 and 173
+    - GenerateInventoryReport and GenerateSalesReport use Pascal case
+    - Violates Java naming conventions
+    - Should use camelCase (generateInventoryReport)
+
+12. Inner Class Abuse (inventorySystem.java), Lines 8-17 and 20-32
+    - Product and Order classes should be separate top-level classes
+    - Current structure makes it harder to maintain and reuse these classes
+
+13. Poor Method Return Type (inventorySystem.java), Lines 162 and 173
+    - Report generation methods return String
+    - Should return a proper Report object or use a builder pattern
+
+14. Lack of Interface Segregation (inventorySystem.java)
+    - Class handles multiple concerns (inventory, orders, reporting)
+    - Should be split into separate interfaces for different responsibilities
+
+15. Dead Code (reportScheduler.java), Lines 1-7
+    - scheduleReport method only prints a message
+    - No actual implementation or usage in the system
+    - Should either be implemented properly or removed
