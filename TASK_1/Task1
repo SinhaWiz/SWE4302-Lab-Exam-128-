@@ -37,16 +37,16 @@ Lines 8-17 and Lines 20-32 Public Fields (inventorySystem.java)
    - calculateTotalInventoryValue method seems more interested in Product class data
    - Should possibly be moved to Product class
 
-9. Magic Numbers (inventorySystem.java), Lines 89-93
+ Magic Numbers (inventorySystem.java), Lines 89-93
    - Hard-coded values (0.85, 0.95, 0.8) for discount calculations
    - Should be constants or configuration values
 
-10. Poor Exception Handling (inventorySystem.java), Lines 65-67
+ Lines 65-67 Poor Exception Handling (inventorySystem.java),
     - Catches general Exception and only prints stack trace
     - No proper error handling or recovery strategy
     - Should use specific exceptions and proper error handling
 
-11. Inconsistent Method Naming (inventorySystem.java), Lines 162 and 173
+ Inconsistent Method Naming (inventorySystem.java), Lines 162 and 173
     - GenerateInventoryReport and GenerateSalesReport use Pascal case
     - Violates Java naming conventions
     - Should use camelCase (generateInventoryReport)
