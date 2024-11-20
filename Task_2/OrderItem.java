@@ -1,3 +1,5 @@
+package Task_2;
+
 public class OrderItem {
     private final IceCreamFlavor flavor;
     private final int scoops;
