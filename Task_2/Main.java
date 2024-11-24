@@ -60,7 +60,6 @@ public class Main {
         double subtotal = calculator.calculateSubtotal(complexOrder);
         double tax = calculator.calculateTax(subtotal);
         double total = calculator.calculateTotal(subtotal, tax);
-
         System.out.printf("Subtotal: $%.2f%n", subtotal);
         System.out.printf("Tax: $%.2f%n", tax);
         System.out.printf("Total: $%.2f%n", total);
